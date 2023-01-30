@@ -6,6 +6,11 @@ const app = new Application();
 
 const PORT = Deno.env.get("PORT") || 8080;
 
+app.use((ctx, next) => {
+  ctx.response.body = 'Welcome Aure';
+   next();
+  });
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 
