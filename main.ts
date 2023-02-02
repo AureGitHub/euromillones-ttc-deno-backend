@@ -1,18 +1,27 @@
-import { Application } from "./deps.ts";
-import router from "./routes/allRoutes.ts";
+import { Application, Context, Status } from "./deps.ts";
+import router from "./routes/routes.ts";
 import { green, yellow } from "https://deno.land/std@0.53.0/fmt/colors.ts";
-import _404 from "./controllers/404.js";
-import errorHandler from "./controllers/errorHandler.js";
+import _404 from "./controllers/management/404/404.controller.ts";
+import _inicioApp from "./controllers/management/inicio.app/inicio.app.controller.ts";
+
 
 const port: number = Deno.env.get("PORT") || 8080;
 
+
 const app = new Application();
 
-app.use(errorHandler);
+app.use(_inicioApp);
+
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(_404);
+
+// app.use((ctx : Context)=>{
+//   ctx.response.status = Status.OK
+// });
+
+
 
 app.addEventListener("listen", ({ secure, hostname, port }) => {
   const protocol = secure ? "https://" : "http://";
