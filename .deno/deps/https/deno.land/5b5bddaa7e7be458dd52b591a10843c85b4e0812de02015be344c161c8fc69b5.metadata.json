@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "via": "http/2 edgeproxy-h",
+    "location": "/x/oak@v11.1.0/mod.ts",
+    "vary": "Accept-Encoding",
+    "x-deno-warning": "Implicitly using latest version (v11.1.0) for https://deno.land/x/oak/mod.ts",
+    "date": "Thu, 02 Feb 2023 08:03:51 GMT",
+    "server": "deno/gcp-us-east1"
+  },
+  "url": "https://deno.land/x/oak/mod.ts",
+  "now": {
+    "secs_since_epoch": 1675325032,
+    "nanos_since_epoch": 485253289
+  }
+}

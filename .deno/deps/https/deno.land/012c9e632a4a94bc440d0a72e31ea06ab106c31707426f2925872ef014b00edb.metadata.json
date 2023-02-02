@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "date": "Thu, 02 Feb 2023 08:08:13 GMT",
+    "via": "http/2 edgeproxy-h",
+    "x-deno-warning": "Implicitly using latest version (1.0.0) for https://deno.land/x/refresh/mod.ts",
+    "vary": "Accept-Encoding",
+    "server": "deno/gcp-us-east1",
+    "location": "/x/refresh@1.0.0/mod.ts",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://deno.land/x/refresh/mod.ts",
+  "now": {
+    "secs_since_epoch": 1675325293,
+    "nanos_since_epoch": 380208636
+  }
+}

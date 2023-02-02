@@ -1,0 +1,20 @@
+import { Application } from "./deps.ts";
+import router from "./routes/allRoutes.ts";
+import { green, yellow } from "https://deno.land/std@0.53.0/fmt/colors.ts";
+import _404 from "./controllers/404.js";
+import errorHandler from "./controllers/errorHandler.js";
+const port = Deno.env.get("PORT") || 8080;
+const app = new Application();
+app.use(errorHandler);
+app.use(router.routes());
+app.use(router.allowedMethods());
+app.use(_404);
+app.addEventListener("listen", ({ secure , hostname , port  })=>{
+    const protocol = secure ? "https://" : "http://";
+    const url = `${protocol}${hostname ?? "localhost"}:${port}`;
+    console.log(`${yellow("Listening on:")} ${green(url)}`);
+});
+await app.listen({
+    port
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvZXVyb21pbGxvbmVzLXR0Yy1kZW5vLWJhY2tlbmQvbWFpbi50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBcHBsaWNhdGlvbiB9IGZyb20gXCIuL2RlcHMudHNcIjtcbmltcG9ydCByb3V0ZXIgZnJvbSBcIi4vcm91dGVzL2FsbFJvdXRlcy50c1wiO1xuaW1wb3J0IHsgZ3JlZW4sIHllbGxvdyB9IGZyb20gXCJodHRwczovL2Rlbm8ubGFuZC9zdGRAMC41My4wL2ZtdC9jb2xvcnMudHNcIjtcbmltcG9ydCBfNDA0IGZyb20gXCIuL2NvbnRyb2xsZXJzLzQwNC5qc1wiO1xuaW1wb3J0IGVycm9ySGFuZGxlciBmcm9tIFwiLi9jb250cm9sbGVycy9lcnJvckhhbmRsZXIuanNcIjtcblxuY29uc3QgcG9ydDogbnVtYmVyID0gRGVuby5lbnYuZ2V0KFwiUE9SVFwiKSB8fCA4MDgwO1xuXG5jb25zdCBhcHAgPSBuZXcgQXBwbGljYXRpb24oKTtcblxuYXBwLnVzZShlcnJvckhhbmRsZXIpO1xuXG5hcHAudXNlKHJvdXRlci5yb3V0ZXMoKSk7XG5hcHAudXNlKHJvdXRlci5hbGxvd2VkTWV0aG9kcygpKTtcbmFwcC51c2UoXzQwNCk7XG5cbmFwcC5hZGRFdmVudExpc3RlbmVyKFwibGlzdGVuXCIsICh7IHNlY3VyZSwgaG9zdG5hbWUsIHBvcnQgfSkgPT4ge1xuICBjb25zdCBwcm90b2NvbCA9IHNlY3VyZSA/IFwiaHR0cHM6Ly9cIiA6IFwiaHR0cDovL1wiO1xuICBjb25zdCB1cmwgPSBgJHtwcm90b2NvbH0ke2hvc3RuYW1lID8/IFwibG9jYWxob3N0XCJ9OiR7cG9ydH1gO1xuICBjb25zb2xlLmxvZyhgJHt5ZWxsb3coXCJMaXN0ZW5pbmcgb246XCIpfSAke2dyZWVuKHVybCl9YCk7XG59KTtcblxuYXdhaXQgYXBwLmxpc3Rlbih7IHBvcnQgfSk7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsU0FBUyxXQUFXLFFBQVEsWUFBWTtBQUN4QyxPQUFPLFlBQVksd0JBQXdCO0FBQzNDLFNBQVMsS0FBSyxFQUFFLE1BQU0sUUFBUSw2Q0FBNkM7QUFDM0UsT0FBTyxVQUFVLHVCQUF1QjtBQUN4QyxPQUFPLGtCQUFrQixnQ0FBZ0M7QUFFekQsTUFBTSxPQUFlLEtBQUssR0FBRyxDQUFDLEdBQUcsQ0FBQyxXQUFXO0FBRTdDLE1BQU0sTUFBTSxJQUFJO0FBRWhCLElBQUksR0FBRyxDQUFDO0FBRVIsSUFBSSxHQUFHLENBQUMsT0FBTyxNQUFNO0FBQ3JCLElBQUksR0FBRyxDQUFDLE9BQU8sY0FBYztBQUM3QixJQUFJLEdBQUcsQ0FBQztBQUVSLElBQUksZ0JBQWdCLENBQUMsVUFBVSxDQUFDLEVBQUUsT0FBTSxFQUFFLFNBQVEsRUFBRSxLQUFJLEVBQUUsR0FBSztJQUM3RCxNQUFNLFdBQVcsU0FBUyxhQUFhLFNBQVM7SUFDaEQsTUFBTSxNQUFNLENBQUMsRUFBRSxTQUFTLEVBQUUsWUFBWSxZQUFZLENBQUMsRUFBRSxLQUFLLENBQUM7SUFDM0QsUUFBUSxHQUFHLENBQUMsQ0FBQyxFQUFFLE9BQU8saUJBQWlCLENBQUMsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUN4RDtBQUVBLE1BQU0sSUFBSSxNQUFNLENBQUM7SUFBRTtBQUFLIn0=
