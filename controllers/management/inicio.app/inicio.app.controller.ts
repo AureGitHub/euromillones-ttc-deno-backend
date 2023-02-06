@@ -1,7 +1,8 @@
 import { Context, Status } from "../../../deps.ts";
 import _global from "../../../global.ts"
 
-export default async (ctx: Context, nextFn : any) => {
+// deno-lint-ignore no-explicit-any
+export default async (ctx: Context, nextFn: () => any) => {
   try {
     //TODO LO QUE QUIERO QUE HAGA AL ENTRAR EN LA APP
 
