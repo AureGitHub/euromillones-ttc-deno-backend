@@ -1,0 +1,6 @@
+import { getTasks } from "../../services/task.service.ts";
+export default (async ({ response  })=>{
+    console.log('entra en getTasks');
+    response.body = await getTasks();
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvZXVyb21pbGxvbmVzLXR0Yy1kZW5vLWJhY2tlbmQvY29udHJvbGxlcnMvdGFzay9nZXRUYXNrcy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBnZXRUYXNrcyB9IGZyb20gXCIuLi8uLi9zZXJ2aWNlcy90YXNrLnNlcnZpY2UudHNcIjtcblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgKHsgcmVzcG9uc2UgfSkgPT4ge1xuICBjb25zb2xlLmxvZygnZW50cmEgZW4gZ2V0VGFza3MnKTtcbiAgcmVzcG9uc2UuYm9keSA9IGF3YWl0IGdldFRhc2tzKCk7XG59OyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxTQUFTLFFBQVEsUUFBUSxpQ0FBaUM7QUFFMUQsZUFBZSxDQUFBLE9BQU8sRUFBRSxTQUFRLEVBQUUsR0FBSztJQUNyQyxRQUFRLEdBQUcsQ0FBQztJQUNaLFNBQVMsSUFBSSxHQUFHLE1BQU07QUFDeEIsQ0FBQSxFQUFFIn0=

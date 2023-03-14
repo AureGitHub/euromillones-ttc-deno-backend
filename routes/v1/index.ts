@@ -1,12 +1,12 @@
-import { Context,Router } from "../../deps.ts";
+import { Router } from "../../deps.ts";
+import  routerTask  from "./task/task.route.ts"
 
-import _config from "../../config.ts"
+import _config from "../../config.ts";
 
+const router = new Router();
 
-const router = new Router(
-
-);
-
+router.use(routerTask.routes());
+/*
 router.get("/", (ctx: Context) => {
   console.log("entra en raiz");
   ctx.response.body = {
@@ -23,19 +23,15 @@ router.get("/hola", (ctx: Context) => {
   };
 });
 
-
-
 router.get("/hola/:id", (ctx: Context) => {
-
   const id = ctx.params.id;
 
   console.log(`entra en hola con PARAM ${id}`);
   ctx.response.body = {
     message: "hello  " + new Date().toLocaleDateString() + " " +
-      new Date().toLocaleTimeString() + ' PARAM ' + id,
+      new Date().toLocaleTimeString() + " PARAM " + id,
   };
 });
-
 
 router.get("/error", (ctx: Context) => {
   console.log("entra a forzar error");
@@ -45,8 +41,7 @@ router.get("/error", (ctx: Context) => {
   };
   throw new Error("error forzado");
 });
-
-
+*/
 export function getRouter() {
   return router;
 }
